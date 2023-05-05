@@ -1,0 +1,44 @@
+body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
+
+.signup-form, .login-form, .profile-page {
+	width: 400px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.signup-form h2, .login-form h2, .profile-page h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.signup-form input, .login-form input, .profile-page input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 4px;
+}
+
+.signup-form button, .login-form button, .profile-page button {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.signup-form button:hover, .login-form button:hover, .profile-page button:hover {
+	background-color: #3e8e41;
+}
+
+.signup-form p,

@@ -1,0 +1,29 @@
+public class DemoDataCreator {
+
+    //...
+
+    private User createUser(String username) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String usernameKey = String.format("username:%s", username);
+
+        // Yeah, bcrypt generally ins't used in .NET, this one is mainly added to be compatible with Node and Python demo servers.
+        String hashedPassword = encoder.encode(DEMO_PASSWORD);
+
+        Integer nextId = redisTemplate.opsForValue().increment("total_users").intValue();
+        String userKey = String.format("user:%s", nextId);
+
+        redisTemplate.opsForValue().set(usernameKey, userKey);
+        redisTemplate.opsForHash().put(userKey, "username", username);
+        redisTemplate.opsForHash().put(userKey, "password", hashedPassword);
+
+        String roomsKey = String.format("user:%s:rooms", nextId);
+        redisTemplate.opsForSet().add(roomsKey, "0");
+
+        return new User(
+                nextId,
+                username,
+                false
+        );
+    }
+    //...
+}
